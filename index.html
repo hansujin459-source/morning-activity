@@ -391,21 +391,36 @@
       document.getElementById("todayDate").innerText = "날짜: " + text;
     }
 
-    function addQuestion(question) {
-      const div = document.getElementById("questions");
-      const questionBox = document.createElement("div");
+   function addQuestion(question, isWriting = false) {
+  const div = document.getElementById("questions");
+  const questionBox = document.createElement("div");
 
-      questionBox.className = "question";
+  questionBox.className = "question";
 
-     questionBox.innerHTML = `
+  let lines = `
+    ___________________________________________
+    <br>
+    ___________________________________________
+  `;
+
+  if (isWriting) {
+    lines = `
+      ___________________________________________
+      <br>
+      ___________________________________________
+      <br>
+      ___________________________________________
+    `;
+  }
+
+  questionBox.innerHTML = `
     <button class="delete-btn" onclick="this.parentElement.remove()">삭제</button>
-    <div class="question-title">${question}</div>
 
-    ___________________________________________
-    <br>
-    ___________________________________________
-    <br>
-    ___________________________________________
+    <div class="question-title">
+      ${question}
+    </div>
+
+    ${lines}
   `;
 
   div.appendChild(questionBox);
@@ -431,8 +446,8 @@
       addQuestion(getRandomQuestion(characterQuestions));
     }
 
-    function addRandomWritingQuote() {
-      addQuestion(getRandomQuestion(writingQuotes));
+   function addRandomWritingQuote() {
+  addQuestion(getRandomQuestion(writingQuotes), true);
     }
 
     function addRandomAll() {
