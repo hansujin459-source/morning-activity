@@ -397,22 +397,19 @@
 
       questionBox.className = "question";
 
-      questionBox.innerHTML = `
-        <button class="delete-btn" onclick="this.parentElement.remove()">삭제</button>
-        <div class="question-title">${question}</div>
-      _________________________________________
+     questionBox.innerHTML = `
+    <button class="delete-btn" onclick="this.parentElement.remove()">삭제</button>
+    <div class="question-title">${question}</div>
 
-      <br>
+    ___________________________________________
+    <br>
+    ___________________________________________
+    <br>
+    ___________________________________________
+  `;
 
-      _________________________________________
-  
-      <br>
-
-      _________________________________________
-      
-
-      div.appendChild(questionBox);
-    }
+  div.appendChild(questionBox);
+}
 
     function getRandomQuestion(list) {
       return list[Math.floor(Math.random() * list.length)];
