@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>아침 다이어리 생성기</title>
+
+  <style>
+
+    body {
+      font-family: sans-serif;
+      padding: 30px;
+      background-color: #ffeef3;
+
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,.45) 50%, transparent 50%),
+        linear-gradient(rgba(255,255,255,.45) 50%, transparent 50%);
+
+      background-size: 24px 24px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ef5f7a;
+      font-size: 52px;
+      margin-bottom: 10px;
+      letter-spacing: -2px;
+    }
+
+    h3 {
+      color: #d94d68;
+      margin-top: 40px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 12px 18px;
+      border: none;
+      background-color: #ef5f7a;
+      color: white;
+      border-radius: 18px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+      box-shadow: 0 4px 0 #d94d68;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      background-color: #ff7390;
+    }
+
+    #worksheet {
+      margin-top: 35px;
+      background-color: #fffdfd;
+      border: 3px solid #ef5f7a;
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: 0 8px 18px rgba(239,95,122,0.15);
+    }
+
+    #worksheet h2 {
+      color: #ef5f7a;
+      font-size: 38px;
+      margin-bottom: 25px;
+    }
+
+    .info {
+      margin-bottom: 20px;
+      line-height: 2;
+      font-size: 18px;
+    }
+
+    .question {
+      border: 2px solid #ef5f7a;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 18px;
+      min-height: 130px;
+      background-color: white;
+      line-height: 2;
+      font-size: 18px;
+    }
+
+    .question-title {
+      color: #ef5f7a;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .memo-box {
+      margin-top: 25px;
+      border: 2px dashed #ef5f7a;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 100px;
+      background-color: #fff7f9;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>🐰 아침 다이어리 생성기 🐰</h1>
+
+  <p class="subtitle">
+    오늘의 기분과 생각을 기록해보세요 ✨
+  </p>
+
+  <h3>질문 선택하기</h3>
+
+  <button onclick="addQuestion('오늘 가장 기대되는 일은 무엇인가요?')">
+    💖 기대되는 일
+  </button>
+
+  <button onclick="addQuestion('어제 내가 가장 많이 웃었던 순간은?')">
+    😂 웃었던 순간
+  </button>
+
+  <button onclick="addQuestion('오늘 친구에게 해주고 싶은 말은?')">
+    🫶 친구에게 한마디
+  </button>
+
+  <button onclick="addQuestion('오늘 내 기분을 날씨로 표현하면?')">
+    ☁ 오늘의 기분
+  </button>
+
+  <button onclick="window.print()">
+    🖨 인쇄 / PDF 저장
+  </button>
+
+  <div id="worksheet">
+
+    <h2>🌷 오늘의 아침 다이어리 🌷</h2>
+
+    <div class="info">
+      날짜: ____________________ <br>
+      이름: ____________________
+    </div>
+
+    <div class="info">
+      오늘의 기분:
+      □ 😊 좋음
+      □ 😐 보통
+      □ 😴 피곤함
+      □ 😥 걱정됨
+      □ 😍 신남
+    </div>
+
+    <div id="questions"></div>
+
+    <div class="memo-box">
+      <strong style="color:#ef5f7a;">memo.</strong>
+
+      <br><br><br><br>
+    </div>
+
+  </div>
+
+  <script>
+
+    function addQuestion(question) {
+
+      const div = document.getElementById("questions");
+
+      const questionBox = document.createElement("div");
+
+      questionBox.className = "question";
+
+      questionBox.innerHTML = `
+        <div class="question-title">
+          ${question}
+        </div>
+
+        <br>
+
+        ___________________________________________
+
+        <br><br>
+
+        ___________________________________________
+
+        <br><br>
+
+        ___________________________________________
+      `;
+
+      div.appendChild(questionBox);
+    }
+
+  </script>
+
+</body>
+</html>
